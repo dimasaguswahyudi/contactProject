@@ -4,9 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
+    public function table(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Contact::with('user');
+            if (Auth::user()->hasRole('Pengguna')) {
+                $data = $data->whereHas('user', function ($query) {
+                    $query->where('id', Auth::user()->id);
+                });
+            }
+            if ($request->input('text') != "") {
+                $cari = $request->input('text');
+                $data = $data
+                    ->where('name', 'like', '%' . $cari . '%')
+                    ->orWhere('email', 'like', '%' . $cari . '%')
+                    ->orWhere('no_telp', 'like', '%' . $cari . '%');
+            }
+            $data = $data->orderBy('created_at')->paginate(10);
+            return view('contact.table', compact('data'))->render();
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +35,14 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $data = Contact::with('user');
+        if (Auth::user()->hasRole('Pengguna')) {
+            $data = $data->whereHas('user', function ($query) {
+                $query->where('id', Auth::user()->id);
+            });
+        }
+        $data = $data->paginate(10);
+        return view('contact.index', compact('data'));
     }
 
     /**

@@ -29,10 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resources([
-        'contact' => ContactController::class,
-        'user' => UserController::class
-    ]);
+    Route::prefix('contact')->name('contact.')->group(function () {
+        Route::get('table', [ContactController::class, 'table'])->name('table');
+    });
+    Route::resource('contact', ContactController::class);
+    Route::resource('user', UserController::class);
 });
 
 require __DIR__.'/auth.php';

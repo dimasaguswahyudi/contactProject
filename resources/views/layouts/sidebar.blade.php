@@ -22,6 +22,8 @@
                     <li class="menu-box">
                         <ul>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                href="{{ route('contact.index') }}"><i data-feather="users"> </i><span>Kontak</span></a></li>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                 href="{{ route('user.index') }}"><i data-feather="users"> </i><span>User</span></a></li>
                         </ul>
                     </li>
