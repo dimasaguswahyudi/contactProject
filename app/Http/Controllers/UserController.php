@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequestStore;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,10 +37,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequestStore $user)
+    public function store(UserRequest $request)
     {
-        $data = $user->all();
-        $data['password'] = Hash::make($user->password);
+        $data = $request->all();
+        $data['password'] = Hash::make($request->password);
         $user = User::create($data);
         $user->assignRole('Superadmin');
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
@@ -63,9 +63,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.create_edit', compact('user'));
     }
 
     /**
@@ -75,9 +75,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+        if ($request->password != null && $request->conpassword != null) {
+            $data['password'] = Hash::make($request->password);
+        }
+        else{
+            unset($data['password']);
+        }
+        $user->update($data);
+        return redirect()->back()->with('success', 'Berhasil Mengupdate Data');
     }
 
     /**
@@ -86,8 +94,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }
