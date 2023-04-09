@@ -42,7 +42,7 @@ class UserController extends Controller
         $data = $request->all();
         $data['password'] = Hash::make($request->password);
         $user = User::create($data);
-        $user->assignRole('Superadmin');
+        $user->assignRole('Pengguna');
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }
 

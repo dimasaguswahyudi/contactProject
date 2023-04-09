@@ -8,15 +8,13 @@
                 <div>
                     <div class="login-main">
                         <form class="theme-form" method="POST" action="{{ route('login') }}">
-                            <h4 class="text-center">Sign in to account</h4>
-                            <p class="text-center">Enter your email & password to login</p>
                             @csrf
                             <!-- Email Address -->
                             <div class="form-group">
                                 <x-input-label for="email" :value="__('Email')" />
                                 <x-text-input id="email" class="form-control" type="email" name="email"
                                     :value="old('email')" required autofocus autocomplete="username" />
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('email')" class="text-danger" />
                             </div>
                             <!-- Password -->
                             <div class="form-group">
@@ -24,8 +22,7 @@
 
                                 <x-text-input id="password" class="form-control" type="password" name="password"
                                     required autocomplete="current-password" />
-
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="text-danger" />
                             </div>
                             <!-- Remember Me -->
                             <div class="mb-0 form-group">
@@ -36,14 +33,14 @@
                                                 class="text-indigo-600 border-gray-300 rounded shadow-sm dark:bg-gray-900 dark:border-gray-700 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                                                 name="remember">
                                             <span
-                                                class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                                                class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Ingat Saya') }}</span>
                                         </label>
                                     </div>
                                     <div class="col text-end">
                                         @if (Route::has('password.request'))
                                             <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                                                 href="{{ route('password.request') }}">
-                                                {{ __('Forgot your password?') }}
+                                                {{ __('Lupa Password?') }}
                                             </a>
                                         @endif
                                     </div>
@@ -52,8 +49,14 @@
 
                             <div class="flex items-center justify-end mt-4">
                                 <x-primary-button class="btn btn-primary btn-block w-100">
-                                    {{ __('Log in') }}
+                                    {{ __('Masuk') }}
                                 </x-primary-button>
+                            </div>
+                            <div class="flex items-center justify-end mt-4 text-center">
+                                <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                                    href="{{ route('register') }}">
+                                    {{ __('Belum memiliki akun?') }}
+                                </a>
                             </div>
                         </form>
                     </div>
