@@ -17,16 +17,12 @@
                                 aria-hidden="true"></i></div>
                     </li>
                     <li class="sidebar-main-title">
-                        <h6 class="lan-1">General </h6>
+                        <h6 class="lan-1">Menus </h6>
                     </li>
                     <li class="menu-box">
                         <ul>
-                            <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i
-                                        data-feather="layout"></i><span class="lan-7">Fitur</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="">Penjualan</a></li>
-                                </ul>
-                            </li>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                href=""><i data-feather="users"> </i><span>User</span></a></li>
                         </ul>
                     </li>
                 </ul>

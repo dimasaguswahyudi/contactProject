@@ -5,7 +5,6 @@
     <div class="p-0 col-12">
         <div class="login-card">
             <div>
-                <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="loginpage"></a></div>
                 <div class="login-main">
                     <form class="theme-form" method="POST" action="{{ route('password.email') }}">
                         <h4>Reset Your Password</h4>

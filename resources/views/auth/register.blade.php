@@ -1,8 +1,6 @@
 <x-guest-layout>
     <div class="login-card">
         <div>
-          <div><a class="text-center logo" href="index.html"><img class="img-fluid for-light"
-                src="../assets/images/logo/login.png" alt="loginpage"></a></div>
           <div class="login-main">
             <form class="theme-form" method="POST" action="{{ route('register') }}">
                 <h4 class="text-center">Create your account</h4>

@@ -39,16 +39,15 @@
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
-                        <label> <a href="{{ url('profile') }}">Profil</a> </label>
+                        <li><a href="{{ url('profile') }}">Profil</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
-                                <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                                <x-responsive-nav-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
                                     {{ __('Log Out') }}
-                                </x-dropdown-link>
+                                </x-responsive-nav-link>
                             </form>
                         </li>
                     </ul>
