@@ -17,12 +17,12 @@
                                 aria-hidden="true"></i></div>
                     </li>
                     <li class="sidebar-main-title">
-                        <h6 class="lan-1">Menus </h6>
+                        <h6 class="lan-1">Menus</h6>
                     </li>
                     <li class="menu-box">
                         <ul>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                href=""><i data-feather="users"> </i><span>User</span></a></li>
+                                href="{{ route('user.index') }}"><i data-feather="users"> </i><span>User</span></a></li>
                         </ul>
                     </li>
                 </ul>
