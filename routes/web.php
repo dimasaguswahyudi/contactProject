@@ -33,7 +33,9 @@ Route::middleware('auth')->group(function () {
         Route::get('table', [ContactController::class, 'table'])->name('table');
     });
     Route::resource('contact', ContactController::class);
-    Route::resource('user', UserController::class);
+    Route::middleware(['role:Superadmin'])->group(function () {
+        Route::resource('user', UserController::class);
+    });
 });
 
 require __DIR__.'/auth.php';

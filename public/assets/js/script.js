@@ -136,7 +136,7 @@
   $(".loader-wrapper").fadeOut("slow", function () {
     $(this).remove();
   });
-  
+
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 600) {
       $(".tap-top").fadeIn();
@@ -144,7 +144,7 @@
       $(".tap-top").fadeOut();
     }
   });
-  
+
   $(".tap-top").on("click", function () {
     $("html, body").animate(
       {
@@ -211,17 +211,17 @@ $(document).ready(function () {
     $(".more_lang .lang").on("click", function () {
       $(this).addClass("selected").siblings().removeClass("selected");
       $(".more_lang").removeClass("active");
-  
+
       var i = $(this).find("i").attr("class");
       var lang = $(this).attr("data-value");
       var tnum = lang;
       translate(tnum);
-  
+
       $(".current_lang .lang-txt").text(lang);
       $(".current_lang i").attr("class", i);
     });
   });
-  
+
   function translate(tnum) {
     $(".lan-1").text(trans[0][tnum]);
     $(".lan-2").text(trans[1][tnum]);
@@ -235,7 +235,7 @@ $(document).ready(function () {
   }
   var trans = [
     {
-      en: "General",
+      en: "Menus",
       pt: "Geral",
       es: "Generalo",
       fr: "GÃ©nÃ©rale",
@@ -316,23 +316,23 @@ $(document).ready(function () {
       ae: "Ø¬Ø§Ù‡Ø² Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª",
     },
   ];
-  
+
   $(".mobile-title svg").on("click", function () {
     $(".header-mega").toggleClass("d-block");
   });
-  
+
   $(".onhover-dropdown").on("click", function () {
     $(this).children(".onhover-show-div").toggleClass("active");
   });
-  
+
   $("#flip-btn").on("click", function () {
     $(".flip-card-inner").addClass("flipped");
   });
-  
+
   $("#flip-back").on("click", function () {
     $(".flip-card-inner").removeClass("flipped");
   });
-  
+
   //landing header //
   $(".toggle-menu").on("click", function () {
     $(".landing-menu").toggleClass("open");
@@ -340,16 +340,16 @@ $(document).ready(function () {
   $(".menu-back").on("click", function () {
     $(".landing-menu").toggleClass("open");
   });
-  
+
   $(".md-sidebar-toggle").on("click", function () {
     $(".md-sidebar-aside").toggleClass("open");
   });
-  
+
   // color selector
   $(".color-selector ul li ").on("click", function (e) {
     $(this).addClass("active").siblings().removeClass("active");
   });
-  
+
   //extra
   $(document).ready(function () {
     // $('body').addClass('dark-only');
