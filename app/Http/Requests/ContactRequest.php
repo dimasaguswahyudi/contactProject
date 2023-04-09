@@ -33,7 +33,7 @@ class ContactRequest extends FormRequest
         elseif (request()->isMethod('PUT')){
             $rules = [
                 'name' => 'required',
-                'email' => 'required|email|max:255|unique:contacts,email,'.$this->user->id,
+                'email' => 'required|email|max:255|unique:contacts,email,'.$this->contact->id,
                 'no_telp' => 'required|min:10|max:15'
             ];
         }

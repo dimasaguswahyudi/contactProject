@@ -28,8 +28,8 @@
                                             aria-expanded="false">Aksi</button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"><a
                                                 class="dropdown-item"
-                                                href="{{ route('user.edit', $item->id) }}">Edit</a>
-                                            <form action="{{ route('user.destroy', $item->id) }}"
+                                                href="{{ route('contact.edit', $item->id) }}">Edit</a>
+                                            <form action="{{ route('contact.destroy', $item->id) }}"
                                                 id="form-delete-{{ $item->id }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

@@ -77,7 +77,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+
     }
 
     /**
@@ -88,7 +88,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contact.create_edit', compact('contact'));
     }
 
     /**
@@ -98,9 +98,10 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactRequest $request, Contact $contact)
     {
-        //
+        $contact->update($request->all());
+        return redirect()->back()->with('success','Berhasil Mengupdate Data');
     }
 
     /**
@@ -111,6 +112,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->back()->with('success','Berhasil Menghapus Data');
     }
 }
