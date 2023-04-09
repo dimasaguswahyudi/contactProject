@@ -29,14 +29,14 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <x-input-label for="password" :value="__('Name *')" />
+                                    <x-input-label for="name" :value="__('Name *')" />
                                     <x-text-input id="email" class="form-control" type="text" name="name" required autofocus autocomplete="username" value="{{ old('name', $user->name) }}"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <x-input-label for="password" :value="__('Email *')" />
+                                    <x-input-label for="email" :value="__('Email *')" />
                                     <x-text-input id="email" class="form-control" type="email" name="email" required autofocus autocomplete="username" value="{{ old('email', $user->email) }}"/>
                                     <small class="text-muted">Email Harus Unique dan blm pernah dimiliki user
                                         lain</small>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <x-input-label for="password" :value="__('Konfirmasi Password *')" />
+                                    <x-input-label for="conpassword" :value="__('Konfirmasi Password *')" />
                                     <x-text-input id="password" class="form-control" type="password" name="conpassword"
                                     required autocomplete="current-password" value="{{ old('conpassword') }}" />
                                     <small class="text-muted">Min 8 Karakter</small>

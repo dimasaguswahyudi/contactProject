@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +53,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $contact = new Contact;
+        return view('contact.create_edit', compact('contact'));
     }
 
     /**
@@ -61,9 +63,10 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        //
+        Contact::create($request->all());
+        return redirect()->back()->with('success', 'Berhasil Menambah Data');
     }
 
     /**

@@ -6,6 +6,7 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>No Telpon</th>
+                <th>Dibuat Oleh</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
                     <td>{{ $item->no_telp }}</td>
+                    <td>{{ $item->user->name }}</td>
                     <td>
                         <div class="btn-group-wrapper">
                             <div class="m-b-30">
@@ -44,4 +46,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $data->appends($_GET)->links() }}
 </div>
