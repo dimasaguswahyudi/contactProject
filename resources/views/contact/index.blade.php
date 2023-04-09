@@ -1,7 +1,9 @@
-@push('title')
-    <h4>Master Users</h4>
-@endpush
 <x-app-layout>
+    <x-slot name="header">
+        <h2>
+            {{ __('Kontak') }}
+        </h2>
+    </x-slot>
     <div class="col-sm-12">
         <div class="card">
             <div class="pb-0 card-header">

@@ -69,11 +69,4 @@
             </div>
         </div>
     </div>
-    @push('js')
-        <script>
-            $(document).ready(function() {
-                $('#role').trigger('change');
-            });
-        </script>
-    @endpush
 </x-app-layout>
